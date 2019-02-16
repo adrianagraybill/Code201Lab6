@@ -19,12 +19,12 @@ var hours = [
 ];
 
 var pikeUl = document.getElementById('pike');
-console.log('doc, ', document);
 console.log(pikeUl);
-var seatacUl = document.getElementById('seatac');
-var centerUl = document.getElementById('center');
-var hillUl = document.getElementById('hill');
-var alkiUl = document.getElementById('alki');
+
+// var seatacUl = document.getElementById('seatac');
+// var centerUl = document.getElementById('center');
+// var hillUl = document.getElementById('hill');
+// var alkiUl = document.getElementById('alki');
 
 var pike = {
   name: 'Pike Place',
@@ -32,16 +32,15 @@ var pike = {
   maxCust: 65,
   avgSale: 6.3,
   render: function (){
-    var answer = Math.floor(Math.random() * ((this.maxCust + 1) - this.minCust)) + this.minCust;
-    console.log(answer);
-    var cookiePerHr = (answer * this.avgSale);
-    console.log(cookiePerHr);
-    for (var i = 0; i < hours.length; i++) {
+    for (var i = 0; i <hours.length; i++) {
+      var answer = Math.floor(Math.random() * ((this.maxCust + 1) - this.minCust)) + this.minCust;
+      var cookiePerHr = Math.floor(answer * this.avgSale);
       var liEl = document.createElement('li');
-      liEl.textContent = `${hours[i]}: ${this.cookiePerHr} cookies.`;
+      liEl.textContent = `${hours[i]}: ${cookiePerHr} cookies.`;
       pikeUl.appendChild(liEl);
     }
   }
 };
+
 pike.render();
 
